@@ -8,6 +8,26 @@ const TodoForm = ({ addTodo }) => {
   const [titleError, setTitleError] = useState('');
   const [descriptionError, setDescriptionError] = useState('');
 
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+    setTitleError('');
+  };
+
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value);
+    setDescriptionError('');
+  };
+
+  const handleClearTitle = () => {
+    setTitle('');
+    setTitleError('');
+  };
+
+  const handleClearDescription = () => {
+    setDescription('');
+    setDescriptionError('');
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     let hasError = false;
@@ -15,15 +35,11 @@ const TodoForm = ({ addTodo }) => {
     if (!title.trim()) {
       setTitleError('Please enter a title.');
       hasError = true;
-    } else {
-      setTitleError('');
     }
 
     if (!description.trim()) {
       setDescriptionError('Please enter a description.');
       hasError = true;
-    } else {
-      setDescriptionError('');
     }
 
     if (hasError) {
@@ -42,24 +58,44 @@ const TodoForm = ({ addTodo }) => {
   return (
     <div className="mb-4">
       <form onSubmit={handleSubmit} className="flex text-black">
-        <div className="flex flex-col mt-2 mr-2 flex-grow">
+        <div className="flex flex-col mt-2 mr-2 flex-grow relative">
           <input
             type="text"
             placeholder="Title"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={handleTitleChange}
             className="border rounded py-2 px-3 w-full"
           />
+          {title && (
+            <button
+              type="button"
+              onClick={handleClearTitle}
+              className="bg-red-400 hover:bg-red-500 text-white rounded-full absolute top-2 right-2 flex items-center justify-center"
+              style={{ border: 'none', outline: 'none', width: '1.7rem', height: '1.7rem' }}
+            >
+              <i className="material-icons text-xl">clear</i>
+          </button>
+          )}
           {titleError && <p className="text-red-500 mt-1 text-lg">{titleError}</p>}
         </div>
-        <div className="flex flex-col mt-2 mr-2 flex-grow">
+        <div className="flex flex-col mt-2 mr-2 flex-grow relative">
           <input
             type="text"
             placeholder="Description"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={handleDescriptionChange}
             className="border rounded py-2 px-3 w-full"
           />
+          {description && (
+            <button
+            type="button"
+            onClick={handleClearDescription}
+            className="bg-red-400 hover:bg-red-500 text-white rounded-full absolute top-2 right-2 flex items-center justify-center"
+            style={{ border: 'none', outline: 'none', width: '1.7rem', height: '1.7rem' }}
+          >
+            <i className="material-icons text-xl">clear</i>
+          </button>
+          )}
           {descriptionError && <p className="text-red-500 mt-1 text-lg">{descriptionError}</p>}
         </div>
         <div>
