@@ -70,10 +70,10 @@ const TodoForm = ({ addTodo }) => {
             <button
               type="button"
               onClick={handleClearTitle}
-              className="bg-red-400 hover:bg-red-500 text-white rounded-full absolute top-2 right-2 flex items-center justify-center"
-              style={{ border: 'none', outline: 'none', width: '1.7rem', height: '1.7rem' }}
+              className="bg-red-400 hover:bg-red-500 text-white rounded-full absolute top-2.5 right-2 flex items-center justify-center"
+              style={{ border: 'none', outline: 'none', width: '1.4rem', height: '1.4rem' }}
             >
-              <i className="material-icons text-xl">clear</i>
+              <i className="material-icons text-lg">clear</i>
           </button>
           )}
           {titleError && <p className="text-red-500 mt-1 text-lg">{titleError}</p>}
@@ -90,10 +90,10 @@ const TodoForm = ({ addTodo }) => {
             <button
             type="button"
             onClick={handleClearDescription}
-            className="bg-red-400 hover:bg-red-500 text-white rounded-full absolute top-2 right-2 flex items-center justify-center"
-            style={{ border: 'none', outline: 'none', width: '1.7rem', height: '1.7rem' }}
+            className="bg-red-400 hover:bg-red-500 text-white rounded-full absolute top-2.5 right-2 flex items-center justify-center"
+            style={{ border: 'none', outline: 'none', width: '1.4rem', height: '1.4rem' }}
           >
-            <i className="material-icons text-xl">clear</i>
+            <i className="material-icons text-lg">clear</i>
           </button>
           )}
           {descriptionError && <p className="text-red-500 mt-1 text-lg">{descriptionError}</p>}
