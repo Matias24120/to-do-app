@@ -64,7 +64,7 @@ const TodoForm = ({ addTodo }) => {
             placeholder="Title"
             value={title}
             onChange={handleTitleChange}
-            className="border rounded py-2 px-3 w-full"
+            className="border rounded py-2 px-3 w-full pr-10"
           />
           {title && (
             <button
@@ -84,7 +84,7 @@ const TodoForm = ({ addTodo }) => {
             placeholder="Description"
             value={description}
             onChange={handleDescriptionChange}
-            className="border rounded py-2 px-3 w-full"
+            className="border rounded py-2 px-3 w-full pr-10"
           />
           {description && (
             <button
